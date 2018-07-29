@@ -1,0 +1,33 @@
+#keyboard{width:calc(100% - 2 * 2px);cursor:pointer}
+#keyboard, #keyboard .key{position:absolute;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+#keyboard .key{height:calc(100% - 2 * 2px);width:10px;left:0;top:0}
+#keyboard .key.black{z-index:1;height:50%}
+#keyboard .key.black #fill{background-color:#000;width:calc(100% - 8px);left:4px}
+#keyboard .key.white{z-index:0}
+#keyboard .key.white #fill{background-color:#222}
+#keyboard .key.black.hover #fill,#keyboard .key.white.hover #fill{border-color:#fff;background-color:#aaa}
+#keyboard .key #fill{border:2px solid #d7d7d7}
+#keyboard .key #fill,#keyboard .key .highlight{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+#keyboard .key .highlight{background-color:#1eb7eb;opacity:0;transition:opacity .6s}
+#keyboard .key .highlight.active{opacity:1}
+#keyboard .key .highlight.ai{background-color:#f9bb2d}
+
+
+
+#container{width:100%;height:100%;position:absolute;top:0;left:0;margin:0;background-color:#000}
+#container #keyboard{position:absolute;bottom:30px;left:0;height:100px}
+#container #glow,#container #roll{width:100%;height:calc(100% - 130px);position:absolute;top:0;left:0}
+#container #bottom{width:100%;height:30px;bottom:0;left:0;position:absolute;background-color:#222;box-shadow:inset 0 12px 30px -5px rgba(0,0,0,.75)}
+#container.focus{-webkit-filter:none;filter:none;opacity:1}
+
+#glow #ai,#glow #user{width:100%;height:100%;position:absolute;top:0;left:0;transition:opacity 1.2s}
+#glow #ai.visible,#glow #user.visible{opacity:.3}
+#glow #ai{opacity:0;background-image:radial-gradient(ellipse farthest-corner at 50% 0,#f9bb2d 0,#000 60%)}
+#glow #user{opacity:0;background-image:radial-gradient(ellipse farthest-corner at 50% 0,#1eb7eb 0,#000 60%)}
+
+
+#aboutButton{position:absolute;top:15px;right:15px;width:30px;height:30px;cursor:pointer;z-index:1000;transition:transform .1s;text-align:center}
+#aboutButton:hover{transform:scale(1.1)}
+#aboutButton:before{font-family:Quicksand,sans-serif;font-weight:700;width:100%;height:100%;position:absolute;top:0;right:0;line-height:30px}#aboutButton.close:before{content:"\2715";font-size:25px;color:#fff;background-color:transparent}
+#aboutButton.open:before{content:"!";background-color:#fff;border-radius:50%;display:none}
+#aboutButton.show.open:before{display:inline-block}#about{width:100%;height:100%;z-index:10;top:0;left:0;position:absolute;overflow-y:auto;display:none}

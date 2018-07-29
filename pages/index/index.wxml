@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class="load_button">
+    <!-- <text class="user-motto">加载资源文件中...</text> -->
+    <progress wx:if="{{!loaded}}" percent="{{percent}}" stroke-width="46" />
+    <button wx:if="{{loaded}}" type="primary" bindtap="bindViewTap" >开始</button>
+    <view class="load_text">
+       <text wx:if="{{!loaded}}" class="load_text">资源加载中，请稍候...</text>
+       <text wx:if="{{loaded}}" class="load_text" decode="{{true}}">&nbsp;</text>
+    </view> 
+  </view>
+
+  
+
+  <view class="userinfo">
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">PanXinmiao</text>
+    <text class="userinfo-address">小视科技AI研究院</text>
+  </view>
+
+</view>

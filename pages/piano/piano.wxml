@@ -1,0 +1,192 @@
+<!--pages/piano/piano.wxml-->
+
+<!-- <view id="splash">
+  <view id="titleContainer">
+    <view id="title"></view>
+    <view id="subTitle"></view>
+    <view id="loader" class="clickable">
+      <view id="loaderText">loading</view>
+      <view id="fill" style="width:100%">
+        <view id="fillText">
+          <view id="piano"></view> 
+          <view id="play">PLAY</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+<div id="aboutButton" class="open show" catch:tap="playDemo"></div>
+
+<view id="container">
+  <view id="glow">
+    <view id="ai" class="{{ai_turn?'visible':''}}"></view>
+    <view id="user" class="{{ai_turn?'':'visible'}}"></view>
+  </view>
+
+  <view id="keyboard" catch:touchstart="touchstart" catch:touchend="touchend" catch:touchmove="touchmove">
+    <view class="key white" id="k_48"
+          style="width: 7.142857142857142%; left: 0%;">
+      <view id="fill">
+        <view wx:if="{{fill_48.show}}" class="highlight active {{fill_48.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key black" id="k_49"
+          style="width: 7.142857142857142%; left: 3.571428571428571%;">
+      <view id="fill">
+        <view wx:if="{{fill_49.show}}" class="highlight active {{fill_49.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key white" id="k_50"
+          style="width: 7.142857142857142%; left: 7.142857142857142%;">
+      <view id="fill">
+        <view wx:if="{{fill_50.show}}" class="highlight active {{fill_50.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key black" id="k_51" style="width: 7.142857142857142%; left: 10.714285714285714%;">
+      <view id="fill">
+        <view wx:if="{{fill_51.show}}" class="highlight active {{fill_51.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key white" id="k_52" style="width: 7.142857142857142%; left: 14.285714285714285%;">
+      <view id="fill">
+        <view wx:if="{{fill_52.show}}" class="highlight active {{fill_52.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key white" id="k_53" style="width: 7.142857142857142%; left: 21.428571428571427%;">
+      <view id="fill">
+        <view wx:if="{{fill_53.show}}" class="highlight active {{fill_53.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key black" id="k_54" style="width: 7.142857142857142%; left: 25%;">
+      <view id="fill">
+        <view wx:if="{{fill_54.show}}" class="highlight active {{fill_54.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key white" id="k_55" style="width: 7.142857142857142%; left: 28.57142857142857%;">
+      <view id="fill">
+        <view wx:if="{{fill_55.show}}" class="highlight active {{fill_55.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key black" id="k_56" style="width: 7.142857142857142%; left: 32.14285714285714%;">
+      <view id="fill">
+        <view wx:if="{{fill_56.show}}" class="highlight active {{fill_56.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key white" id="k_57" style="width: 7.142857142857142%; left: 35.71428571428571%;">
+      <view id="fill">
+        <view wx:if="{{fill_57.show}}" class="highlight active {{fill_57.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key black" id="k_58" style="width: 7.142857142857142%; left: 39.285714285714285%;">
+      <view id="fill">
+        <view wx:if="{{fill_58.show}}" class="highlight active {{fill_58.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key white" id="k_59" style="width: 7.142857142857142%; left: 42.857142857142854%;">
+      <view id="fill">
+        <view wx:if="{{fill_59.show}}" class="highlight active {{fill_59.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key white" id="k_60" style="width: 7.142857142857142%; left: 50%;">
+      <view id="fill">
+        <view wx:if="{{fill_60.show}}" class="highlight active {{fill_60.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key black" id="k_61" style="width: 7.142857142857142%; left: 53.57142857142857%;">
+      <view id="fill">
+        <view wx:if="{{fill_61.show}}" class="highlight active {{fill_61.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key white" id="k_62" style="width: 7.142857142857142%; left: 57.14285714285714%;">
+      <view id="fill">
+        <view wx:if="{{fill_62.show}}" class="highlight active {{fill_62.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key black" id="k_63" style="width: 7.142857142857142%; left: 60.71428571428571%;">
+      <view id="fill">
+        <view wx:if="{{fill_63.show}}" class="highlight active {{fill_63.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key white" id="k_64" style="width: 7.142857142857142%; left: 64.28571428571428%;">
+      <view id="fill">
+        <view wx:if="{{fill_64.show}}" class="highlight active {{fill_64.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key white" id="k_65" style="width: 7.142857142857142%; left: 71.42857142857142%;">
+      <view id="fill">
+        <view wx:if="{{fill_65.show}}" class="highlight active {{fill_65.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key black" id="k_66" style="width: 7.142857142857142%; left: 75%;">
+      <view id="fill">
+        <view wx:if="{{fill_66.show}}" class="highlight active {{fill_66.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key white" id="k_67" style="width: 7.142857142857142%; left: 78.57142857142857%;">
+      <view id="fill">
+        <view wx:if="{{fill_67.show}}" class="highlight active {{fill_67.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key black" id="k_68" style="width: 7.142857142857142%; left: 82.14285714285714%;">
+      <view id="fill">
+        <view wx:if="{{fill_68.show}}" class="highlight active {{fill_68.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key white" id="k_69" style="width: 7.142857142857142%; left: 85.71428571428571%;">
+      <view id="fill">
+        <view wx:if="{{fill_69.show}}" class="highlight active {{fill_69.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key black" id="k_70" style="width: 7.142857142857142%; left: 89.28571428571428%;">
+      <view id="fill">
+        <view wx:if="{{fill_70.show}}" class="highlight active {{fill_70.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+    <view class="key white" id="k_71" style="width: 7.142857142857142%; left: 92.85714285714285%;">
+      <view id="fill">
+        <view wx:if="{{fill_71.show}}" class="highlight active {{fill_71.ai?'ai':''}}"/>
+      </view>
+    </view>
+
+  </view>
+
+<!--
+<view id="keyboard" wx:for="{{keys}}" wx:key="{{id}}">
+  <view class="{{item.class}}" id="{{item.id}}" catch:touchstart="touchstart" catch:touchend="touchend" style="{{item.style}}">
+    <view id="fill">
+      <view class="highlight active"/>
+    </view>
+  </view>
+</view>
+-->
+
+  <view id="roll">
+    <canvas style="width: {{roll_width}}px; height: {{roll_height}}px;" id="roll_canvas" canvas-id="roll_canvas"></canvas>
+  </view>
+
+  <view id="bottom"/>
+</view>
