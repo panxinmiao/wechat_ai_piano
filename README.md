@@ -3,3 +3,6 @@
 使用的RNN模型来自Tensorflow的Magenta项目
 
 
+![image](https://github.com/panxinmiao/wechat_ai_piano/blob/master/QR.png)
+
+
